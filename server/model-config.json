@@ -39,7 +39,7 @@
     "dataSource": null
   },
   "Bank": {
-    "dataSource": "db",
+    "dataSource": "dbpostgresql",
     "public": true
   }
 }
