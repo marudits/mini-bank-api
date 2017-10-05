@@ -1,0 +1,44 @@
+{
+  "name": "Bank",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string"
+    },
+    "location": {
+      "type": "geopoint"
+    },
+    "favourites": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "officeHours": {
+      "type": [
+        "string"
+      ]
+    },
+    "officeDays": {
+      "type": [
+        "number"
+      ]
+    },
+    "rating": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
