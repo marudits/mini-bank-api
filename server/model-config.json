@@ -37,5 +37,9 @@
   },
   "Message": {
     "dataSource": null
+  },
+  "Bank": {
+    "dataSource": "dbpostgresql",
+    "public": true
   }
 }
