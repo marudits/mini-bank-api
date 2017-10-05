@@ -1,0 +1,44 @@
+{
+  "name": "Rating",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "bankId": {
+      "type": "number",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "bank": {
+      "type": "belongsTo",
+      "model": "Bank",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
