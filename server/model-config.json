@@ -41,5 +41,9 @@
   "Bank": {
     "dataSource": "dbpostgresql",
     "public": true
+  },
+  "Rating": {
+    "dataSource": "dbpostgresql",
+    "public": true
   }
 }
