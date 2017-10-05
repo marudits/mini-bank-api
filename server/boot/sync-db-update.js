@@ -1,10 +1,14 @@
 module.exports = function(app) {
-	const models = ['Bank'];
+	const models = ['Bank', 'Rating'];
 	const mode = 'autoupdate';
 
 	app.dataSources.dbpostgresql[mode](models, (err) => {
 		if(err){
 			throw err;
+		}
+
+		for(let model of models){
+			console.log(`Model ${model} has been ${mode}`)
 		}
 
 		let sampleData = 
@@ -46,17 +50,26 @@ module.exports = function(app) {
 					officeDays: [0,1,2,3,4,5,6],
 					rating: 0
 				}
+			],
+			'Rating': [
+				{
+					bankId: 1,
+					name: 'Marudi Tri Subakti',
+					email: 'marudits@gmail.com',
+					text: 'Lorem ipsum dolor sit amet',
+					value: 4
+				}
 			]
 		};
 
 		if(mode === 'automigrate'){
-			for(model of models) {
+			for(let model of models) {
 				app.models[model].create(sampleData[model], (err, res) => {
 					if(err){
 						throw err;
 					}
 
-					console.log(`Models ${model} has been created!`);
+					console.log(`Models ${model} has been migrated!`);
 				});
 			}
 		}
