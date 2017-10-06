@@ -13,6 +13,9 @@
     "address": {
       "type": "string"
     },
+    "phone": {
+      "type": "string"
+    },
     "location": {
       "type": "geopoint"
     },
@@ -34,7 +37,10 @@
     "rating": {
       "type": "number",
       "required": true,
-      "default": 0
+      "default": 0,
+      "postgresql": {
+        "dataType": "NUMERIC(10,2)"
+      }
     }
   },
   "validations": [],
