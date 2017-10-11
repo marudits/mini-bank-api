@@ -41,6 +41,16 @@
       "postgresql": {
         "dataType": "NUMERIC(10,2)"
       }
+    },
+    "createdAt": {
+      "type": "date",
+      "required": false,
+      "defaultFn": "now"
+    },
+    "updatedAt": {
+      "type": "date",
+      "required": false,
+      "defaultFn": "now"
     }
   },
   "validations": [],
