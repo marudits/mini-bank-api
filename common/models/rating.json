@@ -28,7 +28,13 @@
     },
     "createdAt": {
       "type": "date",
-      "required": true
+      "required": true,
+      "defaultFn": "now"
+    },
+    "updatedAt": {
+      "type": "date",
+      "required": false,
+      "defaultFn": "now"
     }
   },
   "validations": [],
