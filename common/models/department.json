@@ -27,6 +27,11 @@
       "type": "hasMany",
       "model": "Position",
       "foreignKey": "departmentId"
+    },
+    "employees": {
+      "type": "hasMany",
+      "model": "Employee",
+      "foreignKey": "departmentId"
     }
   },
   "acls": [],
