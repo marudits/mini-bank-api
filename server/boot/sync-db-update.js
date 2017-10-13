@@ -2,9 +2,9 @@ module.exports = function(app) {
 	const models = ['Bank', 'Rating'],
 		memModels = ['Department', 'Position', 'Employee'];
 	const mode = 'autoupdate',
-		memMode= 'automigrate';
+		memMode= 'autoupdate';
 
-	app.dataSources.db[memMode](memModels, (err) => {
+	app.dataSources.dbpostgresqlheroku[memMode](memModels, (err) => {
 		if(err){
 			throw err;
 		}

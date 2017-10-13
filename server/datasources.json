@@ -12,5 +12,16 @@
     "name": "dbpostgresql",
     "user": "db4dmin",
     "connector": "postgresql"
+  },
+  "dbpostgresqlheroku": {
+    "host": "ec2-54-235-88-58.compute-1.amazonaws.com",
+    "port": 5432,
+    "url": "",
+    "database": "de271l7chra7k8",
+    "password": "96fac47fbe2766eaf3ed7eea0826d257a2df4eef0ce3b9f6ae953de267293b4d",
+    "name": "dbpostgresqlheroku",
+    "user": "cxjgxrrhvzivwt",
+    "connector": "postgresql",
+    "ssl": true
   }
 }
