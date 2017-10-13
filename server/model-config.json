@@ -49,5 +49,9 @@
   "Department": {
     "dataSource": "db",
     "public": true
+  },
+  "Position": {
+    "dataSource": "db",
+    "public": true
   }
 }
