@@ -45,5 +45,9 @@
   "Rating": {
     "dataSource": "dbpostgresql",
     "public": true
+  },
+  "Department": {
+    "dataSource": "db",
+    "public": true
   }
 }
