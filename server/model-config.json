@@ -47,15 +47,15 @@
     "public": true
   },
   "Department": {
-    "dataSource": "db",
+    "dataSource": "dbpostgresqlheroku",
     "public": true
   },
   "Position": {
-    "dataSource": "db",
+    "dataSource": "dbpostgresqlheroku",
     "public": true
   },
   "Employee": {
-    "dataSource": "db",
+    "dataSource": "dbpostgresqlheroku",
     "public": true
   }
 }
