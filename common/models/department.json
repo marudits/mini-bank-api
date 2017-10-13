@@ -1,0 +1,39 @@
+{
+  "name": "Department",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "createdAt": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "updatedAt": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "positions": {
+      "type": "hasMany",
+      "model": "Position",
+      "foreignKey": "departmentId"
+    },
+    "employees": {
+      "type": "hasMany",
+      "model": "Employee",
+      "foreignKey": "departmentId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

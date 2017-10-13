@@ -37,5 +37,25 @@
   },
   "Message": {
     "dataSource": null
+  },
+  "Bank": {
+    "dataSource": "dbpostgresql",
+    "public": true
+  },
+  "Rating": {
+    "dataSource": "dbpostgresql",
+    "public": true
+  },
+  "Department": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Position": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Employee": {
+    "dataSource": "db",
+    "public": true
   }
 }
