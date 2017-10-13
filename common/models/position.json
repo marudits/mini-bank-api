@@ -1,5 +1,5 @@
 {
-  "name": "Department",
+  "name": "Position",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -8,6 +8,10 @@
   "properties": {
     "name": {
       "type": "string",
+      "required": true
+    },
+    "departmentId": {
+      "type": "number",
       "required": true
     },
     "createdAt": {
@@ -23,10 +27,10 @@
   },
   "validations": [],
   "relations": {
-    "positions": {
-      "type": "hasMany",
-      "model": "Position",
-      "foreignKey": "departmentId"
+    "department": {
+      "type": "belongsTo",
+      "model": "Department",
+      "foreignKey": ""
     }
   },
   "acls": [],
