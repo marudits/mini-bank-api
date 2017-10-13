@@ -9,6 +9,7 @@ module.exports = function(Employee) {
 					like: `%${query}%`
 				}
 			},
+			fields: {createdAt: false, updatedAt: false},
 			include: [
 				{
 					relation: 'position',
