@@ -1,9 +1,10 @@
 module.exports = function(app) {
 	//const models = ['Bank', 'Rating', 'Department', 'Position', 'Employee', 'CallHistory'];
-	const models = ['CallHistory'];
+	const models = ['Employee'];
 	const mode = 'autoupdate';
+	const dbConnector = 'dbpostgresqlheroku';
 
-	app.dataSources.dbpostgresqlheroku[mode](models, (err) => {
+	app.dataSources[dbConnector][mode](models, (err) => {
 		if(err){
 			throw err;
 		}
