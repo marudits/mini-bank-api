@@ -3,16 +3,6 @@
     "name": "db",
     "connector": "memory"
   },
-  "dbpostgresql": {
-    "host": "localhost",
-    "port": 5432,
-    "url": "",
-    "database": "m1n1b4nk",
-    "password": "Db4dmin1234",
-    "name": "dbpostgresql",
-    "user": "db4dmin",
-    "connector": "postgresql"
-  },
   "dbpostgresqlheroku": {
     "host": "ec2-54-235-88-58.compute-1.amazonaws.com",
     "port": 5432,
