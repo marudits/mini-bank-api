@@ -39,11 +39,11 @@
     "dataSource": null
   },
   "Bank": {
-    "dataSource": "dbpostgresql",
+    "dataSource": "dbpostgresqlheroku",
     "public": true
   },
   "Rating": {
-    "dataSource": "dbpostgresql",
+    "dataSource": "dbpostgresqlheroku",
     "public": true
   },
   "Department": {
