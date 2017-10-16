@@ -1,5 +1,6 @@
 module.exports = function(app) {
-	const models = ['Bank', 'Rating', 'Department', 'Position', 'Employee'];
+	//const models = ['Bank', 'Rating', 'Department', 'Position', 'Employee', 'CallHistory'];
+	const models = ['CallHistory'];
 	const mode = 'autoupdate';
 
 	app.dataSources.dbpostgresqlheroku[mode](models, (err) => {
@@ -106,6 +107,20 @@ module.exports = function(app) {
 						email: 'marudits@gmail.com',
 						text: 'Lorem ipsum dolor sit amet',
 						value: 4
+					}
+				],
+				'CallHistory': [
+					{
+						callerId: 'IMEI-EMP-001',
+						calleeId: 2
+					},
+					{
+						callerId: 'IMEI-EMP-001',
+						calleeId: 3
+					},
+					{
+						callerId: 'IMEI-EMP-001',
+						calleeId: 2
 					}
 				]
 			}

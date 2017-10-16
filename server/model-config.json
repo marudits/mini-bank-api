@@ -57,5 +57,9 @@
   "Employee": {
     "dataSource": "dbpostgresqlheroku",
     "public": true
+  },
+  "CallHistory": {
+    "dataSource": "dbpostgresqlheroku",
+    "public": true
   }
 }
