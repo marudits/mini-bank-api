@@ -1,5 +1,4 @@
 module.exports = function(app) {
-	
 	//const models = ['Bank', 'Rating', 'Department', 'Position', 'Employee', 'CallHistory'];
 	const models = ['Employee'];
 	const mode = 'autoupdate';
