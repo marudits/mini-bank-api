@@ -1,19 +1,18 @@
 module.exports = function(app) {
-	const models = ['Bank', 'Rating'],
-		memModels = ['Department', 'Position', 'Employee'];
-	const mode = 'autoupdate',
-		memMode= 'automigrate';
+	//const models = ['Bank', 'Rating', 'Department', 'Position', 'Employee', 'CallHistory'];
+	const models = ['CallHistory'];
+	const mode = 'autoupdate';
 
-	app.dataSources.db[memMode](memModels, (err) => {
+	app.dataSources.dbpostgresqlheroku[mode](models, (err) => {
 		if(err){
 			throw err;
 		}
 
-		for(let model of memModels){
-			console.log(`Mem Model ${model} has been ${memMode}`)
+		for(let model of models){
+			console.log(`Model ${model} has been ${mode}`)
 		}
 
-		if(memMode === 'automigrate'){
+		if(mode === 'automigrate'){
 			const sampleData = {
 				'Department': [
 					{
@@ -62,33 +61,7 @@ module.exports = function(app) {
 						phone: '0310000003',
 						ext: '003'
 					}
-				]
-			}
-
-			for(let model of memModels) {
-				app.models[model].create(sampleData[model], (err, res) => {
-					if(err){
-						throw err;
-					}
-
-					console.log(`Mem Models ${model} has been migrated!`);
-				});
-			}
-		}
-	});
-
-	app.dataSources.dbpostgresql[mode](models, (err) => {
-		if(err){
-			throw err;
-		}
-
-		for(let model of models){
-			console.log(`Model ${model} has been ${mode}`)
-		}
-
-		if(mode === 'automigrate'){
-			const sampleData = 
-			{
+				],
 				'Bank': [
 					{
 						name: 'Hong Leong Bank',
@@ -135,8 +108,22 @@ module.exports = function(app) {
 						text: 'Lorem ipsum dolor sit amet',
 						value: 4
 					}
+				],
+				'CallHistory': [
+					{
+						callerId: 'IMEI-EMP-001',
+						calleeId: 2
+					},
+					{
+						callerId: 'IMEI-EMP-001',
+						calleeId: 3
+					},
+					{
+						callerId: 'IMEI-EMP-001',
+						calleeId: 2
+					}
 				]
-			};
+			}
 
 			for(let model of models) {
 				app.models[model].create(sampleData[model], (err, res) => {
@@ -148,7 +135,5 @@ module.exports = function(app) {
 				});
 			}
 		}
-		
 	});
-
 }

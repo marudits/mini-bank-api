@@ -40,23 +40,27 @@
 <<<<<<< HEAD
   },
   "Bank": {
-    "dataSource": "dbpostgresql",
+    "dataSource": "dbpostgresqlheroku",
     "public": true
   },
   "Rating": {
-    "dataSource": "dbpostgresql",
+    "dataSource": "dbpostgresqlheroku",
     "public": true
   },
   "Department": {
-    "dataSource": "db",
+    "dataSource": "dbpostgresqlheroku",
     "public": true
   },
   "Position": {
-    "dataSource": "db",
+    "dataSource": "dbpostgresqlheroku",
     "public": true
   },
   "Employee": {
-    "dataSource": "db",
+    "dataSource": "dbpostgresqlheroku",
+    "public": true
+  },
+  "CallHistory": {
+    "dataSource": "dbpostgresqlheroku",
     "public": true
 =======
 >>>>>>> 287dc47aaba75d5beb09df746bfe11e3f66ee21c
