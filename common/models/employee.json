@@ -51,6 +51,11 @@
       "type": "belongsTo",
       "model": "Department",
       "foreignKey": "departmentId"
+    },
+    "callHistories": {
+      "type": "hasMany",
+      "model": "CallHistory",
+      "foreignKey": "calleeId"
     }
   },
   "acls": [],
