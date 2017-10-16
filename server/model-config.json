@@ -37,6 +37,7 @@
   },
   "Message": {
     "dataSource": null
+<<<<<<< HEAD
   },
   "Bank": {
     "dataSource": "dbpostgresqlheroku",
@@ -61,5 +62,7 @@
   "CallHistory": {
     "dataSource": "dbpostgresqlheroku",
     "public": true
+=======
+>>>>>>> 287dc47aaba75d5beb09df746bfe11e3f66ee21c
   }
 }
