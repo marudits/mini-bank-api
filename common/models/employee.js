@@ -10,7 +10,7 @@ module.exports = function(Employee) {
 		let params = {
 			where: {
 				name: {
-					like: `%${query}%`
+					ilike: `%${query}%`
 				}
 			},
 			fields: {createdAt: false, updatedAt: false},
