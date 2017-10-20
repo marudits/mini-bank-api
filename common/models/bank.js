@@ -4,8 +4,11 @@ const async = require('async');
 
 const app = require('../../server/server');
 
+const dateAndTime = require('../utils/dateAndTime.js');
+
 module.exports = function(Bank) {
 
+	//REMOTE METHOD: favourite
 	Bank.favourite = function(bankId, next){
 
 		app.models.Bank.findById(bankId, (err, bank) => {
@@ -37,6 +40,47 @@ module.exports = function(Bank) {
 			arg: 'bankId',
 			type: 'number',
 			required: true
+		},
+		returns: {
+			arg: 'result',
+			type: 'object'
+		}
+	});
+
+	//REMOTE METHOD: list
+	Bank.list = function(next){
+
+		const params = {
+			include: [
+				{
+					relation: 'ratings',
+					scope: {
+						fields: ['id']
+					}
+				}
+			]
+		}
+
+		app.models.Bank.find(params, (err, banks) => {
+			if(err){
+				console.error('An error occured. Cannot get list of Bank. ', err);
+				next(err);
+			} else {
+				banks.forEach((bank) => {
+					bank.officeDaysFormatted = dateAndTime.formatOfficeDays(bank.officeDays);
+					bank.officeHoursFormatted = bank.officeHours.join(' - ');
+					bank.status = dateAndTime.isOpen(bank.officeDays, bank.officeHours)
+				});
+
+				next(null, {status: true, data: banks});
+			}
+		});
+	}
+
+	Bank.remoteMethod('list', {
+		http: {
+			verb: 'GET',
+			path: '/list'
 		},
 		returns: {
 			arg: 'result',
