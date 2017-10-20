@@ -18,5 +18,16 @@
       "limit": "100kb"
     },
     "cors": false
+  },
+  "copyright": {
+    "company": "Hong Leong Bank Berhad",
+    "division": "COE",
+    "developer": "Marudi Tri Subakti",
+    "email": "marudits@gmail.com"
+  },
+  "region": {
+    "country": "Malaysia",
+    "city": "Kuala Lumpur",
+    "timezone": "Asia/Kuala_Lumpur"
   }
 }

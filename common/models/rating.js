@@ -4,7 +4,7 @@ const async = require('async');
 
 const app = require('../../server/server');
 
-const dateAndTime = require('../utils/dateAndTime.js');
+const dateAndTime = require('../utils/helpers/dateAndTime.js');
 
 module.exports = function(Rating) {
 
