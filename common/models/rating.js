@@ -4,8 +4,11 @@ const async = require('async');
 
 const app = require('../../server/server');
 
+const dateAndTime = require('../utils/dateAndTime.js');
+
 module.exports = function(Rating) {
 
+	//REMOTE HOOK: AFTER
 	const afterRemoteCreate = function(ctx, res, next){
 		
 		async.waterfall([
@@ -73,4 +76,16 @@ module.exports = function(Rating) {
 
 
 	Rating.afterRemote('create', afterRemoteCreate);
+
+	//REMOTE HOOK: FIND
+	const afterRemoteFind = function(ctx, res, next){
+
+		res.forEach((x) => {
+			x.createdAtFormatted = dateAndTime.calculateDiffTime(x.createdAt);
+		});
+
+		next(null, res);
+	}
+
+	Rating.afterRemote('find', afterRemoteFind)
 };
