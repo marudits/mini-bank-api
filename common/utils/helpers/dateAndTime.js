@@ -1,4 +1,6 @@
-const moment = require('moment');
+const moment = require('moment-timezone'),
+	app = require('../../../server/server'),
+	configRegion = app.get('region');
 
 module.exports = {
 	
@@ -13,11 +15,13 @@ module.exports = {
 	},
 
 	isOpen: function(officeDays = [], officeHours = []){
-		let day = moment().day(),
+		let day = moment().tz(configRegion.timezone).format('d'),
 			format = 'HH:mm',
-			time = moment(new Date(), format),
-			beforeTime = moment(officeHours[0], format),
-			afterTime = moment(officeHours[1], format);
+			time = moment(new Date(), format).tz(configRegion.timezone),
+			beforeTime = moment(officeHours[0], format).tz(),
+			afterTime = moment(officeHours[1], format).tz();
+
+		console.log(`day: ${day} | time: ${time} | beforeTime: ${beforeTime} | afterTime: ${afterTime}`)
 
 		return time.isBetween(beforeTime, afterTime) && officeDays.indexOf(day) !== -1;
 	},
