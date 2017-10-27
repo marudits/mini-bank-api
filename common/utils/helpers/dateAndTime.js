@@ -45,5 +45,22 @@ module.exports = {
 				return `${countMinutes}m ago`;
 			}
 		}
+	},
+
+	formatOfficeDaysAndStatus: function(days){
+		let officeDaysAndStatus = [];
+
+		for(let i = 0; i < 7; i++){
+			officeDaysAndStatus.push(
+				{
+					id: i, 
+					name: moment().day(i).format('ddd'), 
+					isOpen: days.indexOf(i) !== -1,
+					isToday: moment().format('d') == i
+				}
+			);
+		}
+
+		return officeDaysAndStatus;
 	}
 }

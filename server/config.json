@@ -29,5 +29,8 @@
     "country": "Malaysia",
     "city": "Kuala Lumpur",
     "timezone": "Asia/Kuala_Lumpur"
+  },
+  "key": {
+    "googleApi": "AIzaSyDiVEoMjmJUSXLnnpYW57-JzpgiAnRLVa8"
   }
 }
