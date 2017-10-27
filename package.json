@@ -23,8 +23,10 @@
     "loopback-connector-postgresql": "^3.1.0",
     "moment": "^2.19.1",
     "moment-timezone": "^0.5.13",
+    "node-geocoder": "^3.21.0",
     "serve-favicon": "^2.0.1",
-    "strong-error-handler": "^2.0.0"
+    "strong-error-handler": "^2.0.0",
+    "superagent": "^3.8.0"
   },
   "devDependencies": {
     "eslint": "^3.17.1",
