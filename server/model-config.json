@@ -61,5 +61,13 @@
   "CallHistory": {
     "dataSource": "dbpostgresqlheroku",
     "public": true
+  },
+  "Category": {
+    "dataSource": "dbpostgresqlheroku",
+    "public": true
+  },
+  "Reference": {
+    "dataSource": "dbpostgresqlheroku",
+    "public": true
   }
 }
