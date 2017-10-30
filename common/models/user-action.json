@@ -1,21 +1,25 @@
 {
-  "name": "Category",
+  "name": "UserAction",
   "base": "PersistedModel",
-  "idInjection": false,
+  "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "id": {
-      "type": "number",
-      "id": true,
-      "required": true
-    },
-    "value": {
+    "userId": {
       "type": "string",
       "required": true
     },
-    "description": {
+    "actionId": {
+      "type": "number",
+      "required": true
+    },
+    "tags": {
+      "type": [
+        "number"
+      ]
+    },
+    "notes": {
       "type": "string"
     },
     "createdAt": {
@@ -31,10 +35,10 @@
   },
   "validations": [],
   "relations": {
-    "references": {
-      "type": "hasMany",
+    "reference": {
+      "type": "belongsTo",
       "model": "Reference",
-      "foreignKey": "categoryId"
+      "foreignKey": "actionId"
     }
   },
   "acls": [],

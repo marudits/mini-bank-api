@@ -69,5 +69,9 @@
   "Reference": {
     "dataSource": "dbpostgresqlheroku",
     "public": true
+  },
+  "UserAction": {
+    "dataSource": "dbpostgresqlheroku",
+    "public": true
   }
 }
