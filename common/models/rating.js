@@ -2,9 +2,11 @@
 
 const async = require('async');
 
-const app = require('../../server/server');
+const app = require('../../server/server'),
+	ratingConfig = app.get('rating');
 
 const dateAndTime = require('../utils/helpers/dateAndTime.js');
+const googleApi = require('../utils/helpers/googleApi.js');
 
 module.exports = function(Rating) {
 
@@ -88,4 +90,47 @@ module.exports = function(Rating) {
 	}
 
 	Rating.afterRemote('find', afterRemoteFind)
+
+	//REMOTE METHOD
+	Rating.latestReview = function(next){
+		const params = {
+			order: 'createdAt DESC',
+			include: [
+				{
+					relation: 'bank',
+					scope: {
+						fields: ['name', 'location'],
+					}
+				}
+			],
+			fields: {name: true, text: true, createdAt: true, bankId: true},
+			limit: ratingConfig.showedLatestReview
+		}
+
+		app.models.Rating.find(params, (err, ratings) => {
+			if(err || ratings.length < 1){
+				next(err, {status: false, err: err});
+			} else {
+
+				ratings.forEach((rating) => {
+					let { location } = rating.bank();
+					rating.bank().imgStreetView = googleApi.getImgStreetView(location);
+					rating.time = dateAndTime.calculateDiffTime(rating.createdAt);
+				});
+
+				next(null, {status: true, data: ratings});
+			}
+		});
+	}
+
+	Rating.remoteMethod('latestReview', {
+		http: {
+			verb: 'GET',
+			path: '/latestReview'
+		},
+		returns: {
+			arg: 'result',
+			type: 'object'
+		}
+	});
 };
