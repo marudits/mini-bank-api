@@ -2,7 +2,7 @@ var SAMPLE_DATA = require('../migrations/sample-data');
 
 module.exports = function(app) {
 	//const models = ['Bank', 'Rating', 'Department', 'Position', 'Employee', 'CallHistory'];
-	const models = ['Category', 'Reference'];
+	const models = ['Category', 'Reference', 'UserAction'];
 	const mode = 'autoupdate';
 	const dbConnector = 'dbpostgresqlheroku';
 
@@ -18,13 +18,15 @@ module.exports = function(app) {
 		if(mode === 'automigrate'){
 
 			for(let model of models) {
-				app.models[model].create(SAMPLE_DATA[model], (err, res) => {
-					if(err){
-						throw err;
-					}
+				if(SAMPLE_DATA[model] && SAMPLE_DATA[model].length > 0){
+					app.models[model].create(SAMPLE_DATA[model], (err, res) => {
+						if(err){
+							throw err;
+						}
 
-					console.log(`Models ${model} has been migrated!`);
-				});
+						console.log(`Models ${model} has been migrated!`);
+					});
+				}
 			}
 		}
 	});
