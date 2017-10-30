@@ -240,6 +240,12 @@ module.exports = {
 		},
 		{
 			categoryId: 4,
+			value: 'MAIL',
+			type: [1,3],
+			description: 'CONTACT_ACTIONS: MAIL'
+		},
+		{
+			categoryId: 4,
 			value: 'ADD',
 			type: [1,2],
 			description: 'CONTACT_ACTIONS: ADD'
