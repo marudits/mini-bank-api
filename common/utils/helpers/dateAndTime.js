@@ -18,12 +18,10 @@ module.exports = {
 		let day = moment().tz(configRegion.timezone).format('d'),
 			format = 'HH:mm',
 			time = moment(new Date(), format).tz(configRegion.timezone),
-			beforeTime = moment(officeHours[0], format).tz(),
-			afterTime = moment(officeHours[1], format).tz();
+			beforeTime = moment(officeHours[0], format).tz(configRegion.timezone),
+			afterTime = moment(officeHours[1], format).tz(configRegion.timezone);
 
-		console.log(`day: ${day} | time: ${time} | beforeTime: ${beforeTime} | afterTime: ${afterTime}`)
-
-		return time.isBetween(beforeTime, afterTime) && officeDays.indexOf(day) !== -1;
+		return time.isBetween(beforeTime, afterTime) && officeDays.indexOf(parseInt(day)) !== -1;
 	},
 
 	calculateDiffTime: function(time){
@@ -62,5 +60,19 @@ module.exports = {
 		}
 
 		return officeDaysAndStatus;
+	},
+
+	getListDateInMonth: function(date = moment()){
+		let startMonth = moment(date).startOf('month'),
+			endMonth = moment(date).endOf('month'),
+			currentDay = startMonth,
+			dates = [];
+
+		while(moment(currentDay).diff(endMonth, 'day') <= 0){
+			dates.push(currentDay);
+			currentDay = currentDay.add(1, 'day');
+		}
+
+		return dates;
 	}
 }
