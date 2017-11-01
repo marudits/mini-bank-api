@@ -27,7 +27,7 @@
   },
   "validations": [],
   "relations": {
-    "employee": {
+    "callee": {
       "type": "belongsTo",
       "model": "Employee",
       "foreignKey": "calleeId"
