@@ -1,16 +1,25 @@
 {
   "name": "Reference",
   "base": "PersistedModel",
-  "idInjection": true,
+  "idInjection": false,
   "options": {
     "validateUpsert": true
   },
   "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "required": true
+    },
     "categoryId": {
       "type": "number",
       "required": true
     },
     "value": {
+      "type": "string",
+      "required": true
+    },
+    "key": {
       "type": "string",
       "required": true
     },
